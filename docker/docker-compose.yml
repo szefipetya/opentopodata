@@ -1,0 +1,19 @@
+version: '3.8'
+services:   
+  opentopodata:
+    # specify the image here
+    image: opentopodata:1.8.3
+    container_name: opentopodata
+    # uncomment if you want to build the image yourself
+
+    ports:
+      - 5000:5000
+    volumes:
+      # use a docker managed volume
+      -  ../data:/app/data:ro
+      - ./run.sh:/run.sh
+      
+    environment:
+      -  N_UWSGI_THREADS=8 
+    command: /bin/sh -c "/run.sh"
+

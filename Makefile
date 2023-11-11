@@ -1,4 +1,4 @@
-VERSION = `cat VERSION`
+VERSION = 1.8.3
 .PHONY: build run daemon test run-local black black-check update-requirements
 
 build:
